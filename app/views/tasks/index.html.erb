@@ -1,0 +1,14 @@
+<%= link_to "Incluir nova tarefa", new_task_path %>
+
+<h1>To Do List</h1>
+
+<% @tasks.each do |task| %>
+
+  <p>Task: <%= link_to task.name, task_path(task) %></p>
+  <p>Detail: <%= task.detail %></p>
+  <%= link_to "Editar", edit_task_path(task) %>
+  <%= link_to "Excluir", task_path(task), method: 'delete', data: { confirm: "Tem certeza?" } %>
+  <hr>
+
+<% end %>
+
